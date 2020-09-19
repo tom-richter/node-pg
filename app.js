@@ -18,6 +18,13 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
+  console.log('PORT=', process.env.PORT)
+  console.log('PGUSER=', process.env.PGUSER)
+  console.log('PGPASSWORD=', process.env.PGPASSWORD)
+  console.log('PGHOST=', process.env.PGHOST)
+  console.log('PGPORT=', process.env.PGPORT)
+  console.log('PGDATABASE=', process.env.PGDATABASE)
+  console.log('NODE_ENV=', process.env.NODE_ENV)
   db.query(`SELECT * FROM foods`)
     .then((result) => res.send(result.rows))
     .catch((e) => console.log(e));
