@@ -23,6 +23,10 @@ app.get("/", (req, res) => {
     .catch((e) => console.log(e));
 });
 
+app.get("/abc", (req, res) => {
+ res.send("Hello Man!");
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
