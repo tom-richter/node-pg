@@ -8,6 +8,7 @@ let pool;
 
 if (isProduction) {
   const connectionString = process.env.DB_CONNECTION;
+  console.log('insideee')
 
   pool = new Pool({
     connectionString: connectionString,
