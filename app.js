@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
   console.log('PGPORT=', process.env.PGPORT)
   console.log('PGDATABASE=', process.env.PGDATABASE)
   console.log('NODE_ENV=', process.env.NODE_ENV)
+  console.log('DB_CONNECTION=', process.env.DB_CONNECTION)
   db.query(`SELECT * FROM foods`)
     .then((result) => res.send(result.rows))
     .catch((e) => console.log(e));
