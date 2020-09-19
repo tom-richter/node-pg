@@ -18,21 +18,21 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  console.log('PORT=', process.env.PORT)
-  console.log('PGUSER=', process.env.PGUSER)
-  console.log('PGPASSWORD=', process.env.PGPASSWORD)
-  console.log('PGHOST=', process.env.PGHOST)
-  console.log('PGPORT=', process.env.PGPORT)
-  console.log('PGDATABASE=', process.env.PGDATABASE)
-  console.log('NODE_ENV=', process.env.NODE_ENV)
-  console.log('DB_CONNECTION=', process.env.DB_CONNECTION)
+  res.send("Hello World!");
+ }); 
+
+app.get("/foods", (req, res) => {
+  console.log('PORT =', process.env.PORT)
+  console.log('PGUSER =', process.env.PGUSER)
+  console.log('PGPASSWORD =', process.env.PGPASSWORD)
+  console.log('PGHOST =', process.env.PGHOST)
+  console.log('PGPORT =', process.env.PGPORT)
+  console.log('PGDATABASE =', process.env.PGDATABASE)
+  console.log('NODE_ENV =', process.env.NODE_ENV)
+  console.log('DB_CONNECTION =', process.env.DB_CONNECTION)
   db.query(`SELECT * FROM foods`)
     .then((result) => res.send(result.rows))
     .catch((e) => console.log(e));
-});
-
-app.get("/abc", (req, res) => {
- res.send("Hello Man!");
 });
 
 app.listen(PORT, () => {

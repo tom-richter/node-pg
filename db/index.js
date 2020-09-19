@@ -7,16 +7,11 @@ const isProduction = process.env.NODE_ENV === "production";
 let pool;
 
 if (isProduction) {
-  const connectionString = process.env.DB_CONNECTION;
-  console.log('insideee')
-
   pool = new Pool({
-    connectionString: connectionString,
+    connectionString: process.env.DB_CONNECTION,
   });
 } else {
-  pool = new Pool({
-    ssl: false,
-  });
+  pool = new Pool();
 }
 
 module.exports = {
